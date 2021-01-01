@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OpenFlash")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Windows10などの最新のOSで動作可能のオープンソースのFlashPlayerです。あなたの知らない過去の歴史を「振り返って」見ませんか？")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OpenFlash")]
+[assembly: AssemblyProduct("OpenFlash/DevelopersPackages/Furcht968")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -11,3 +11,5 @@ c:\users\furcht futurr\documents\visual studio 2013\Projects\OpenFlash\OpenFlash
 c:\users\furcht futurr\documents\visual studio 2013\Projects\OpenFlash\OpenFlash\obj\Release\OpenFlash.csproj.GenerateResource.Cache
 c:\users\furcht futurr\documents\visual studio 2013\Projects\OpenFlash\OpenFlash\obj\Release\OpenFlash.exe
 c:\users\furcht futurr\documents\visual studio 2013\Projects\OpenFlash\OpenFlash\obj\Release\OpenFlash.pdb
+C:\Users\FURCHT FUTURR\Documents\Visual Studio 2013\Projects\OpenFlash\OpenFlash\obj\Release\OpenFlash.csprojResolveAssemblyReference.cache
+C:\Users\FURCHT FUTURR\Documents\Visual Studio 2013\Projects\OpenFlash\OpenFlash\obj\Release\OpenFlash.AboutBox1.resources

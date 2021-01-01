@@ -14,35 +14,52 @@ namespace OpenFlash
 {
     public partial class Form1 : Form
     {
-        static string swfPath;
+        static string swfPath = string.Empty;
         static bool playing = false;
-        public void PlayFlash(string file){
-            if (playing==true)
+        public void PlayFlash(string file, int bootflag = 0)
+        {
+            if (System.IO.Path.GetExtension(file) == ".swf")
             {
-                DialogResult result = MessageBox.Show("再生中の動画を停止し新しい動画を再生しますか？",
-                "質問",
-                MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                if (playing==true)
+                {
+                    DialogResult result = MessageBox.Show("再生中の動画を停止し新しい動画を再生しますか？",
+                    "質問",
+                    MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Flash.LoadMovie(0, file);
+                        playing = true;
+                    }
+                }
+                else
                 {
                     Flash.LoadMovie(0, file);
+                    playing = true;
                 }
-            }
-            else
-            {
-                Flash.LoadMovie(0, file);
-                playing = true;
+                this.一時停止ToolStripMenuItem.Enabled = playing;
+                this.ループ再生ToolStripMenuItem.Enabled = playing;
+                this.最初からToolStripMenuItem.Enabled = playing;
+            }else{
+                DialogResult result = MessageBox.Show("SWF形式のファイルではありません。",
+                    "エラー",
+                    MessageBoxButtons.OK);
+                    if (bootflag == 1)
+                    {
+                        Environment.Exit(0);
+                    }
             }
         }
         public Form1()
         {
-
+            this.Size = new System.Drawing.Size(720, 480);
             InitializeComponent();
             this.Flash.Size = new System.Drawing.Size(this.Size.Width, this.Size.Height-63);
             this.Resize += new EventHandler(Form1_Resize);
             string[] cmds = System.Environment.GetCommandLineArgs();
             if (cmds.Length == 2)
             {
-                Flash.LoadMovie(0, cmds[1]);
+                swfPath = cmds[1];
+                PlayFlash(swfPath, 1);
             }
         }
         private void Form1_Resize(object sender, System.EventArgs e)
@@ -89,17 +106,33 @@ namespace OpenFlash
             {
                 Flash.StopPlay();
                 this.一時停止ToolStripMenuItem.Text = "再生";
+                playing = false;
             }
             else
             {
                 Flash.Play();
                 this.一時停止ToolStripMenuItem.Text = "一時停止";
+                playing = true;
             }
         }
 
         private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (playing == true && swfPath != string.Empty)
+            {
+                DialogResult result = MessageBox.Show("再生中の動画を停止し終了しますか？",
+                "質問",
+                MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Flash.Stop();
+                    Environment.Exit(0);
+                }
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
 
         private void ループ再生ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -128,6 +161,31 @@ namespace OpenFlash
         {
             Flash.Rewind();
             Flash.Play();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (playing == true && swfPath != string.Empty)
+            {
+                DialogResult result = MessageBox.Show("再生中の動画を停止し終了しますか？",
+                "質問",
+                MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void 情報ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 abForm = new AboutBox1();
+            abForm.ShowDialog();
         }
 
     }
