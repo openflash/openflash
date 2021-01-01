@@ -38,6 +38,7 @@
             this.動画ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.一時停止ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ループ再生ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.最初からToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.表示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.フルスクリーンToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -58,6 +59,8 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.menuStrip1.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -66,7 +69,7 @@
             this.表示ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(934, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(934, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,25 +81,25 @@
             this.toolStripSeparator1,
             this.終了ToolStripMenuItem});
             this.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
-            this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
+            this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(121, 36);
             this.ファイルToolStripMenuItem.Text = "ファイル(F)";
             // 
             // flashファイルのロードToolStripMenuItem
             // 
             this.flashファイルのロードToolStripMenuItem.Name = "flashファイルのロードToolStripMenuItem";
-            this.flashファイルのロードToolStripMenuItem.Size = new System.Drawing.Size(358, 38);
+            this.flashファイルのロードToolStripMenuItem.Size = new System.Drawing.Size(298, 38);
             this.flashファイルのロードToolStripMenuItem.Text = "SWFファイルのロード";
             this.flashファイルのロードToolStripMenuItem.Click += new System.EventHandler(this.flashファイルのロードToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(355, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(295, 6);
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(358, 38);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(298, 38);
             this.終了ToolStripMenuItem.Text = "終了";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
@@ -104,15 +107,16 @@
             // 
             this.動画ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.一時停止ToolStripMenuItem,
-            this.ループ再生ToolStripMenuItem});
+            this.ループ再生ToolStripMenuItem,
+            this.最初からToolStripMenuItem});
             this.動画ToolStripMenuItem.Name = "動画ToolStripMenuItem";
-            this.動画ToolStripMenuItem.Size = new System.Drawing.Size(75, 38);
+            this.動画ToolStripMenuItem.Size = new System.Drawing.Size(75, 36);
             this.動画ToolStripMenuItem.Text = "動画";
             // 
             // 一時停止ToolStripMenuItem
             // 
             this.一時停止ToolStripMenuItem.Name = "一時停止ToolStripMenuItem";
-            this.一時停止ToolStripMenuItem.Size = new System.Drawing.Size(234, 38);
+            this.一時停止ToolStripMenuItem.Size = new System.Drawing.Size(215, 38);
             this.一時停止ToolStripMenuItem.Text = "一時停止";
             this.一時停止ToolStripMenuItem.Click += new System.EventHandler(this.一時停止ToolStripMenuItem_Click);
             // 
@@ -120,22 +124,29 @@
             // 
             this.ループ再生ToolStripMenuItem.AutoToolTip = true;
             this.ループ再生ToolStripMenuItem.Name = "ループ再生ToolStripMenuItem";
-            this.ループ再生ToolStripMenuItem.Size = new System.Drawing.Size(234, 38);
+            this.ループ再生ToolStripMenuItem.Size = new System.Drawing.Size(215, 38);
             this.ループ再生ToolStripMenuItem.Text = "ループ再生";
             this.ループ再生ToolStripMenuItem.Click += new System.EventHandler(this.ループ再生ToolStripMenuItem_Click);
+            // 
+            // 最初からToolStripMenuItem
+            // 
+            this.最初からToolStripMenuItem.Name = "最初からToolStripMenuItem";
+            this.最初からToolStripMenuItem.Size = new System.Drawing.Size(215, 38);
+            this.最初からToolStripMenuItem.Text = "最初から";
+            this.最初からToolStripMenuItem.Click += new System.EventHandler(this.最初からToolStripMenuItem_Click);
             // 
             // 表示ToolStripMenuItem
             // 
             this.表示ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.フルスクリーンToolStripMenuItem});
             this.表示ToolStripMenuItem.Name = "表示ToolStripMenuItem";
-            this.表示ToolStripMenuItem.Size = new System.Drawing.Size(75, 38);
+            this.表示ToolStripMenuItem.Size = new System.Drawing.Size(75, 36);
             this.表示ToolStripMenuItem.Text = "表示";
             // 
             // フルスクリーンToolStripMenuItem
             // 
             this.フルスクリーンToolStripMenuItem.Name = "フルスクリーンToolStripMenuItem";
-            this.フルスクリーンToolStripMenuItem.Size = new System.Drawing.Size(282, 38);
+            this.フルスクリーンToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
             this.フルスクリーンToolStripMenuItem.Text = "フルスクリーン";
             this.フルスクリーンToolStripMenuItem.Click += new System.EventHandler(this.フルスクリーンToolStripMenuItem_Click);
             // 
@@ -173,6 +184,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ループ再生ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 最初からToolStripMenuItem;
 
     }
 }

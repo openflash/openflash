@@ -15,14 +15,32 @@ namespace OpenFlash
     public partial class Form1 : Form
     {
         static string swfPath;
+        static bool playing = false;
+        public void PlayFlash(string file){
+            if (playing==true)
+            {
+                DialogResult result = MessageBox.Show("再生中の動画を停止し新しい動画を再生しますか？",
+                "質問",
+                MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Flash.LoadMovie(0, file);
+                }
+            }
+            else
+            {
+                Flash.LoadMovie(0, file);
+                playing = true;
+            }
+        }
         public Form1()
         {
+
             InitializeComponent();
             this.Flash.Size = new System.Drawing.Size(this.Size.Width, this.Size.Height-63);
-            Console.WriteLine("Started");
             this.Resize += new EventHandler(Form1_Resize);
             string[] cmds = System.Environment.GetCommandLineArgs();
-            if (cmds.Length != 0)
+            if (cmds.Length == 2)
             {
                 Flash.LoadMovie(0, cmds[1]);
             }
@@ -40,7 +58,7 @@ namespace OpenFlash
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
                 swfPath = openFileDialog1.FileName;
-                Flash.LoadMovie(0, swfPath);
+                PlayFlash(swfPath);
             }
         }
 
@@ -93,16 +111,23 @@ namespace OpenFlash
 
         private void Form1_DragEnter(object sender, DragEventArgs e)
         {
-            string file = string.Empty; // テキストボックスを空にする。
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop); // ドロップされたものがFileDrop形式の場合は、各ファイルのパス文字列を文字列配列に格納する。
+            string file = string.Empty;
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             if (files != null)
             {
                 foreach (string uriString in files)
                 {
-                    file = file + uriString; // パス文字列からファイル名を抜き出して、テキストボックスにファイル名を書き込む。
+                    file = file + uriString;
                 }
             }
-            Flash.LoadMovie(0, file);
+            swfPath = file;
+            PlayFlash(swfPath);
+        }
+
+        private void 最初からToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Flash.Rewind();
+            Flash.Play();
         }
 
     }
