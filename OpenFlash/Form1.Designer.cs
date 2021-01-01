@@ -33,16 +33,21 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flashファイルのロードToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.動画ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.一時停止ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ループ再生ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.表示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.フルスクリーンToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.動画ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.Flash)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Flash
             // 
+            this.Flash.AllowDrop = true;
             this.Flash.Enabled = true;
             this.Flash.Location = new System.Drawing.Point(-10, 24);
             this.Flash.Margin = new System.Windows.Forms.Padding(0);
@@ -53,6 +58,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ファイルToolStripMenuItem,
@@ -68,7 +74,9 @@
             // 
             this.ファイルToolStripMenuItem.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
             this.ファイルToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.flashファイルのロードToolStripMenuItem});
+            this.flashファイルのロードToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.終了ToolStripMenuItem});
             this.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
             this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
             this.ファイルToolStripMenuItem.Text = "ファイル(F)";
@@ -79,6 +87,42 @@
             this.flashファイルのロードToolStripMenuItem.Size = new System.Drawing.Size(358, 38);
             this.flashファイルのロードToolStripMenuItem.Text = "SWFファイルのロード";
             this.flashファイルのロードToolStripMenuItem.Click += new System.EventHandler(this.flashファイルのロードToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(355, 6);
+            // 
+            // 終了ToolStripMenuItem
+            // 
+            this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(358, 38);
+            this.終了ToolStripMenuItem.Text = "終了";
+            this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
+            // 
+            // 動画ToolStripMenuItem
+            // 
+            this.動画ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.一時停止ToolStripMenuItem,
+            this.ループ再生ToolStripMenuItem});
+            this.動画ToolStripMenuItem.Name = "動画ToolStripMenuItem";
+            this.動画ToolStripMenuItem.Size = new System.Drawing.Size(75, 38);
+            this.動画ToolStripMenuItem.Text = "動画";
+            // 
+            // 一時停止ToolStripMenuItem
+            // 
+            this.一時停止ToolStripMenuItem.Name = "一時停止ToolStripMenuItem";
+            this.一時停止ToolStripMenuItem.Size = new System.Drawing.Size(234, 38);
+            this.一時停止ToolStripMenuItem.Text = "一時停止";
+            this.一時停止ToolStripMenuItem.Click += new System.EventHandler(this.一時停止ToolStripMenuItem_Click);
+            // 
+            // ループ再生ToolStripMenuItem
+            // 
+            this.ループ再生ToolStripMenuItem.AutoToolTip = true;
+            this.ループ再生ToolStripMenuItem.Name = "ループ再生ToolStripMenuItem";
+            this.ループ再生ToolStripMenuItem.Size = new System.Drawing.Size(234, 38);
+            this.ループ再生ToolStripMenuItem.Text = "ループ再生";
+            this.ループ再生ToolStripMenuItem.Click += new System.EventHandler(this.ループ再生ToolStripMenuItem_Click);
             // 
             // 表示ToolStripMenuItem
             // 
@@ -95,14 +139,9 @@
             this.フルスクリーンToolStripMenuItem.Text = "フルスクリーン";
             this.フルスクリーンToolStripMenuItem.Click += new System.EventHandler(this.フルスクリーンToolStripMenuItem_Click);
             // 
-            // 動画ToolStripMenuItem
-            // 
-            this.動画ToolStripMenuItem.Name = "動画ToolStripMenuItem";
-            this.動画ToolStripMenuItem.Size = new System.Drawing.Size(75, 38);
-            this.動画ToolStripMenuItem.Text = "動画";
-            // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 649);
@@ -110,8 +149,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "OpenFlash";
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.Flash)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -130,6 +169,10 @@
         private System.Windows.Forms.ToolStripMenuItem 表示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem フルスクリーンToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 動画ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 一時停止ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ループ再生ToolStripMenuItem;
 
     }
 }
