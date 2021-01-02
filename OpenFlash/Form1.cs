@@ -190,3 +190,9 @@ namespace OpenFlash
 
     }
 }
+
+/*
+    #koishi_doujin {
+        content:"HelloWorld! <br /> thanks for find! <br /> Quote from 物凄いスペースシャトルでこいしが物凄いうた";
+    }
+*/
